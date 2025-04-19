@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <title>Groq AI - LLaMA 3</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div class="container">
+<div class="ai-chat">
+  <h1>Organ Vision</h1>
+  <p><b>OrganVision</b>- Sağlamlıq üzrə bələdçi.</p>
+  <p></p>
+  <div class="input-container">
+    <textarea id="userInput" placeholder="Sualınızı yazın..." oninput="adjustHeight()"></textarea>
+    <button onclick="askGroq()">Göndər</button>
+  </div>
+  <div id="result">Cavab burada görünəcək...</div>
+
+  <!-- Bodyscope -->
+  <h1 class="main-title">Bodyscope</h1>
+  <p class="subtitle">Orqanını seç və iç dünyanı kəşf et!</p>
+
+  <!-- Əsas 3 orqan -->
+  <div class="organs">
+    <div class="organ-card" onclick="showOrgan('Ürək')">
+      <img src="heart-1.webp" alt="Ürək" />
+      <span>Ürək</span>
+    </div>
+    <div class="organ-card" onclick="showOrgan('Beyin')">
+      <img src="brain-2.png" alt="Beyin" />
+      <span>Beyin</span>
+    </div>
+    <div class="organ-card" onclick="showOrgan('Dəri')">
+      <img src="deri-1.avif" alt="Dəri" />
+      <span>Dəri</span>
+    </div>
+  </div>
+</div>
+
+  <!-- Seçim üçün əlavə orqanlar -->
+  <div class="dropdown">
+    <select id="organSelect" onchange="showOrgan(this.value)">
+      <option value="">Əlavə orqan seçin</option>
+      <option value="Göz">Göz</option>
+      <option value="Ağciyər">Ağciyər</option>
+      <option value="Mədə">Mədə</option>
+      <option value="Qaraciyər">Qaraciyər</option>
+      <option value="Böyrək">Böyrək</option>
+    </select>
+  </div>
+
+  <!-- Orqan haqqında məlumat -->
+  <div id="organDetails" class="hidden">
+    <img id="organLargeImg" src="" alt="Organ şəkli" class="organ-large-img" />
+    <div class="organ-description">
+      <h2 id="organName">Orqan adı</h2>
+      <div class="section">
+        <h3>Necə işləyir?</h3>
+        <p id="howItWorks">...</p>
+      </div>
+      <div class="section">
+        <h3>Nəyə kömək edir?</h3>
+        <p id="whatItHelps">...</p>
+      </div>
+      <div class="section">
+        <h3>Faktlar</h3>
+        <ul id="factsList"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Sıralama vacibdir: Object.js əvvəl, index.js sonra -->
+
+  <script src="index.js"></script>
+
+</body>
+</html>
