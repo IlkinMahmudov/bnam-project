@@ -263,6 +263,7 @@ max-width: 500px;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    margin-left: 0px;
   }
  .portofolio-div{
   display: flex;
