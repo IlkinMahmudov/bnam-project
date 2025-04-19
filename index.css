@@ -68,6 +68,7 @@ img {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+  overflow-y: hidden;
   width: 100%;
   max-width: 600px;
   margin: 20px auto;
@@ -81,6 +82,7 @@ img {
 textarea {
   flex: 1;
   padding: 14px 18px;
+  overflow-y: hidden;
   font-size: 16px;
   border-radius: 10px;
   border: 1px solid #ccc;
@@ -193,6 +195,68 @@ button:active {
   color: #222;
 }
 
+.portofolio-div{
+  display: flex;
+  margin-left: 80px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.portofolio-name{
+  color: #15172f;
+  font-family: "Poppins", sans-serif;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 56px;
+}
+
+.portofolio-work{
+color: #5258fb;
+font-family: "Inter", sans-serif;
+font-size: 30px;
+font-weight: 500;
+line-height: 40px;
+margin-bottom: 50px;
+}
+
+.portofolio-info{
+color: #475467;
+max-width: 600px;
+margin-bottom:40px;
+}
+
+
+.portofolio-image{
+border-radius: 10px;
+display: flex;
+
+
+
+max-width: 411px;
+
+padding: 16px 16px 16px;
+width: 100%;
+}
+
+.portofolio-image img{
+width: 100%;
+height: 100%;
+object-fit: cover;
+border-radius: 10px;
+}
+
+.portofolio-info-2{
+color: #475467;
+max-width: 500px;
+}
+.who-us{
+  margin-top: 50px
+}
+.who-us h2{
+  margin-left: 80px;
+}
+
 /* Responsive Design */
 @media screen and (max-width: 768px) {
   .input-container {
@@ -228,4 +292,12 @@ button:active {
   .organ-large-img {
     width: 120px;
   }
+  .portofolio-name{
+    font-size: 28px;
+  }
+  .portofolio-work{
+    font-size: 26px;
+  }
 }
+
+
