@@ -45,8 +45,8 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%; /* Made width 100% for responsive scaling */
-  max-width: 550px; /* Max width for bigger screens */
+  width: 100%;
+  max-width: 550px;
   padding: 20px;
   border-radius: 10px;
   background: #fff;
@@ -57,7 +57,7 @@ img {
 textarea {
   padding: 14px 18px;
   font-size: 16px;
-  width: 100%; /* Allow textarea to take full width */
+  width: 100%;
   border-radius: 10px;
   border: 1px solid #ccc;
   outline: none;
@@ -167,7 +167,7 @@ button:active {
 /* For Small Screens Below 515px */
 @media screen and (max-width: 515px) {
   body {
-    padding: 10px; /* Reduce body padding to avoid horizontal scroll */
+    padding: 10px;
   }
 
   .input-container {
@@ -177,17 +177,16 @@ button:active {
 
   textarea {
     width: 100%;
-    max-width: 100%; /* Allow textarea to fill the container */
   }
 
   button {
     width: 100%;
-    padding: 12px; /* Reduce padding to fit on smaller screens */
+    padding: 12px;
   }
 
   .organ-card {
     width: 100%;
-    max-width: 140px; /* Make organ cards smaller to fit */
+    max-width: 140px;
   }
 
   .organs {
@@ -275,13 +274,5 @@ button:active {
 .section {
   margin-top: 50px;
   text-align: center;
-  max-width: 700px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.section p {
-  text-align: center;
+  max-width: 700px
 }
