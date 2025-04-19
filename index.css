@@ -256,7 +256,30 @@ max-width: 500px;
 .who-us h2{
   margin-left: 80px;
 }
+@media screen and (max-width:1029px) {
+  .who-us{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+ .portofolio-div{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0px;
+  text-align: center;
+ }
 
+ .who-us h2{
+  text-align: center;
+  margin-left: 0px;
+ }
+
+
+}
 /* Responsive Design */
 @media screen and (max-width: 768px) {
   .input-container {
