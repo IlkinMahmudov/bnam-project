@@ -3,101 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <title>Groq AI - LLaMA 3</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f9;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    h1 {
-      color: #222;
-    }
-
-    input, button {
-      padding: 10px;
-      font-size: 16px;
-      width: 300px;
-      margin-top: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      outline: none;
-    }
-
-    button {
-      background-color: #2d89ef;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background-color: #1b5fab;
-    }
-
-    #result {
-      margin-top: 20px;
-      background: white;
-      padding: 15px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 600px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-  </style>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-
-  <h1>Groq AI (LLaMA 3)</h1>
-  <input type="text" id="userInput" placeholder="Sualınızı yazın..." />
-  <button onclick="askGroq()">Soruş</button>
+<div class="container">
+<div class="ai-chat">
+  <h1>Organ Vision</h1>
+  <p><b>OrganVision</b>- Sağlamlıq üzrə bələdçi.</p>
+  <p></p>
+  <div class="input-container">
+    <textarea id="userInput" placeholder="Sualınızı yazın..." oninput="adjustHeight()"></textarea>
+    <button onclick="askGroq()">Göndər</button>
+  </div>
   <div id="result">Cavab burada görünəcək...</div>
 
-  <script>
-    async function askGroq() {
-      const apiKey = "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"; // <-- Buraya açarını yaz
-      const userInput = document.getElementById("userInput").value;
-      const resultDiv = document.getElementById("result");
+  <!-- Bodyscope -->
+  <h1 class="main-title">Bodyscope</h1>
+  <p class="subtitle">Orqanını seç və iç dünyanı kəşf et!</p>
 
-      if (!userInput) {
-        resultDiv.innerText = "Zəhmət olmasa sual daxil edin.";
-        return;
-      }
+  <!-- Əsas 3 orqan -->
+  <div class="organs">
+    <div class="organ-card" onclick="showOrgan('Ürək')">
+      <img src="heart-1.webp" alt="Ürək" />
+      <span>Ürək</span>
+    </div>
+    <div class="organ-card" onclick="showOrgan('Beyin')">
+      <img src="brain-2.png" alt="Beyin" />
+      <span>Beyin</span>
+    </div>
+    <div class="organ-card" onclick="showOrgan('Dəri')">
+      <img src="deri-1.avif" alt="Dəri" />
+      <span>Dəri</span>
+    </div>
+  </div>
+</div>
 
-      resultDiv.innerText = "Yüklənir...";
+  <!-- Seçim üçün əlavə orqanlar -->
+  <div class="dropdown">
+    <select id="organSelect" onchange="showOrgan(this.value)">
+      <option value="">Əlavə orqan seçin</option>
+      <option value="Göz">Göz</option>
+      <option value="Ağciyər">Ağciyər</option>
+      <option value="Mədə">Mədə</option>
+      <option value="Qaraciyər">Qaraciyər</option>
+      <option value="Böyrək">Böyrək</option>
+    </select>
+  </div>
 
-      try {
-        const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${apiKey}`
-          },
-          body: JSON.stringify({
-            model: "llama3-8b-8192",
-            messages: [
-              { role: "user", content: userInput }
-            ]
-          })
-        });
+  <!-- Orqan haqqında məlumat -->
+  <div id="organDetails" class="hidden">
+    <img id="organLargeImg" src="" alt="Organ şəkli" class="organ-large-img" />
+    <div class="organ-description">
+      <h2 id="organName">Orqan adı</h2>
+      <div class="section">
+        <h3>Necə işləyir?</h3>
+        <p id="howItWorks">...</p>
+      </div>
+      <div class="section">
+        <h3>Nəyə kömək edir?</h3>
+        <p id="whatItHelps">...</p>
+      </div>
+      <div class="section">
+        <h3>Faktlar</h3>
+        <ul id="factsList"></ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-        if (response.ok) {
-          const data = await response.json();
-          resultDiv.innerText = data.choices[0].message.content;
-        } else {
-          const error = await response.text();
-          resultDiv.innerText = `Xəta baş verdi: ${response.status}\n${error}`;
-        }
+  <!-- Sıralama vacibdir: Object.js əvvəl, index.js sonra -->
 
-      } catch (err) {
-        resultDiv.innerText = "Şəbəkə xətası: " + err.message;
-      }
-    }
-  </script>
+  <script src="index.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,290 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f5f5;
+
+
+  margin: 0;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.container{
+  max-width: 1600px;
+  width: 100%;
+
+  margin: 0 auto;
+}
+ul {
+  list-style: none;
+}
+
+img {
+  background: transparent;
+}
+.ai-chat{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ai-chat h1 {
+  color: #2d89ef;
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+
+.dropdown{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-items: center;
+  width: 550px;
+  max-width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+
+textarea {
+  padding: 14px 18px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 75%;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  background-color: #f9f9f9;
+  resize: none;
+  overflow-y: hidden;
+  min-height: 50px;
+  box-sizing: border-box;
+}
+
+textarea:focus {
+  border-color: #2d89ef;
+  box-shadow: 0 0 5px rgba(45, 137, 239, 0.5);
+  background-color: #fff;
+}
+
+button {
+  padding: 14px 18px;
+  font-size: 16px;
+  background-color: #2d89ef;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+button:hover {
+  background-color: #1b5fab;
+  transform: translateY(-3px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.dropdown,#organSelect{
+  padding: 10px 20px;
+  border-radius: 24px;
+}
+
+#result {
+  margin-top: 30px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  font-size: 18px;
+  color: #555;
+  overflow: hidden;
+  height: auto;
+  transition: height 0.3s ease;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.loading {
+  color: #888;
+  font-style: italic;
+}
+.section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* Responsive Styles */
+@media screen and (max-width: 610px) {
+  .input-container {
+      flex-direction: column;
+      padding: 15px;
+      gap: 10px;
+  }
+
+  .input-container button {
+      width: 100%;
+  }
+
+  .main-title {
+      font-size: 28px;
+  }
+
+  .subtitle {
+      font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .input-container {
+      width: 100%;
+  }
+
+  .main-title {
+      font-size: 26px;
+  }
+
+  .subtitle {
+      font-size: 16px;
+  }
+}
+
+/* For Small Screens Below 515px */
+@media screen and (max-width: 515px) {
+  body {
+      padding: 10px; /* Reduce body padding to avoid horizontal scroll */
+  }
+
+  .input-container {
+      width: 100%;
+      padding: 10px;
+  }
+
+  textarea {
+      width: 100%;
+      max-width: 100%; /* Allow textarea to fill the container */
+  }
+
+  button {
+      width: 100%;
+      padding: 12px; /* Reduce padding to fit on smaller screens */
+  }
+
+  .organ-card {
+      width: 100%;
+      max-width: 140px; /* Make organ cards smaller to fit */
+  }
+
+  .organs {
+      gap: 15px;
+  }
+
+  .main-title {
+      font-size: 24px;
+  }
+
+  .subtitle {
+      font-size: 14px;
+  }
+}
+
+/* Organ Cards */
+.organs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.organ-card {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 15px;
+  width: 120px;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.organ-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.organ-card img {
+  width: 60px;
+  height: 60px;
+}
+
+.organ-card span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Organ Details */
+#organDetails {
+  margin-top: 30px;
+  padding: 20px;
+  border-top: 2px solid #ccc;
+  background: #ffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  justify-content: center;
+
+}
+
+#organDetails.hidden {
+  display: none;
+}
+
+.organ-large-img {
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  background-color: transparent;
+  margin-bottom: 10px;
+}
+
+.organ-description h2 {
+  margin-bottom: 15px;
+  text-align: center;
+  color: #222;
+}
+
+.section {
+  margin-top: 50px;
+  text-align: center;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section p {
+  text-align: center;
+}
